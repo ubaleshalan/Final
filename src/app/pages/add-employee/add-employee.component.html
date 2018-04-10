@@ -1,0 +1,75 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8 border"> 
+			<h1>Employee Registration Form</h1>
+				<form method="post" #userForm="ngForm" (ngSubmit)="onSubmit(user, userForm)">
+					<div class="form-group">
+						<label for="Id">Emp-Id:-</label>
+						<input type="text" class="form-control" [class.invalid]="yname.touched && yname.invalid" pattern="[0-9]{8}" [(ngModel)] = "user.id" #yname="ngModel" (change)="getModel(yname)" placeholder="Employee Id" name="id" id="id" required>
+						<div [class.invalid]="yname.touched && yname.invalid" *ngIf="yname.touched && yname.invalid">
+							<span *ngIf="yname.errors.required">Please Enter Employee Id.</span>
+							<span *ngIf="yname.errors.pattern">Only digital number accepted.</span>
+						</div>
+					</div><br>
+					<div class="form-group">
+						<label for="name">Name:-</label>
+						<input type="text" class="form-control" [class.invalid]="aname.touched && aname.invalid" pattern="[a-zA-Z]+" [(ngModel)] = "user.name" #aname="ngModel" (change)="getModel(aname)" placeholder="Employee Name" name="name" id="name" required>
+						<div [class.invalid]="aname.touched && aname.invalid" *ngIf="aname.touched && aname.invalid">
+							<span *ngIf="aname.errors.required">Please Enter Name.</span>
+							<span *ngIf="aname.errors.pattern">Only Alphabets are accepted.</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="dept">Department:-</label>
+						<input type="text" class="form-control" [class.invalid]="bname.touched && bname.invalid" pattern="[a-zA-Z]+" [(ngModel)] = "user.department" #bname="ngModel" (change)="getModel(bname)" placeholder="Department" name="department" id="dept" required>
+						<div [class.invalid]="bname.touched && bname.invalid" *ngIf="bname.touched && bname.invalid">
+							<span *ngIf="bname.errors.required">Please Enter Department.</span>
+							<span *ngIf="bname.errors.pattern">Only Alphabets are accepted.</span>
+						</div>						
+					</div><br>
+					<div class="form-group">
+						<b>Country:-</b>
+							<select name="country" disabled="disabled">
+								<option value="India">India</option>
+								<option value="Afaganistan">Afaganistan</option>
+								<option value="UNited State">United State</option>
+								<option value="Britan">Britan</option>
+								<option value="Brazil">Brazil</option>
+								<option value="Canada">Canada</option>
+							</select>
+					</div>
+					<div><br>
+						<b>State:-</b>
+							<select name="state">
+								<option value="Maharastra">Maharastra</option>
+								<option value="Gujrat">Gujrat</option>
+								<option value="MP">MP</option>
+								<option value="UP">UP</option>
+								<option value="Tamilnadu">Tamilnadu</option>
+								<option value="New Delhi">New Delhi</option>
+							</select>
+					</div><br>
+					<div>
+						<label for="city">City:-</label>
+						<input type="text" class="form-control" [class.invalid]="cname.touched && cname.invalid" pattern="[a-zA-Z]+" [(ngModel)] = "user.city" #cname="ngModel" (change)="getModel(cname)" placeholder="Enter City" name="city" id="city" required>
+						<div [class.invalid]="cname.touched && cname.invalid" *ngIf="cname.touched && cname.invalid">
+							<span *ngIf="cname.errors.required">Please Enter City.</span>
+							<span *ngIf="cname.errors.pattern">Only Alphabets are accepted.</span>
+						</div>	
+					</div><br>
+					<div>
+						<label for="contact no">Contact No:-</label>
+						<input type="tle"  name="cont" [class.invalid]="dname.touched && dname.invalid" pattern="[0-9]{10}" [(ngModel)] = "user.cont" #dname="ngModel" (change)="getModel(dname)" class="form-control" id="contact no" required><br>
+						<div [class.invalid]="dname.touched && dname.invalid" *ngIf="dname.touched && dname.invalid">
+							<span *ngIf="dname.errors.required">Please Enter contact No.</span>
+							<span *ngIf="dname.errors.pattern">Only Digits are accepted.</span>
+						</div>
+					</div>
+					
+					<button type="Submit" class="btn btn-primary">Add Employee</button>
+				</form>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>
